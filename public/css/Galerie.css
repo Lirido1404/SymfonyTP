@@ -1,0 +1,40 @@
+img {
+    width: 100px;
+    height: 100px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.gallery2 {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
+}
+
+.divVoitures {
+    display: flex;
+    flex-direction: column;
+}
+
+
+
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+

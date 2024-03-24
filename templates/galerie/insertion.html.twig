@@ -1,0 +1,73 @@
+{# templates/galerie/insertion.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insertion d'une nouvelle image</title>
+    <style>
+        .form-control{
+    border-radius: 20px;
+    border: 2px solid blue;
+    
+}
+    </style>
+</head>
+
+<body>
+    <h1>Insertion d'une nouvelle image</h1>
+
+    {{ form_start(form) }}
+        <div>
+            <label>{{ field_label(form.titre) }}</label>
+            <input
+                name="{{ field_name(form.titre) }}"
+                value="{{ field_value(form.titre) }}"
+                placeholder="{{ field_label(form.titre) }}"
+                class="form-control"
+            >
+            {{ form_errors(form.titre) }}
+        </div>
+
+        <div>
+            <label>{{ field_label(form.auteur) }}</label>
+            <input
+                name="{{ field_name(form.auteur) }}"
+                value="{{ field_value(form.auteur) }}"
+                placeholder="{{ field_label(form.auteur) }}"
+                class="form-control"
+            >
+            {{ form_errors(form.auteur) }}
+        </div>
+        
+        <div>
+            <label>{{ field_label(form.date) }}</label>
+            <input
+                name="{{ field_name(form.date) }}"
+                value="{{ field_value(form.date) }}"
+                placeholder="{{ field_label(form.date) }}"
+                class="form-control"
+            >
+            {{ form_errors(form.date) }}
+        </div>
+
+        <div>
+            <label>{{ field_label(form.path) }}</label>
+            <input
+                name="{{ field_name(form.path) }}"
+                value="{{ field_value(form.path) }}"
+                placeholder="{{ field_label(form.path) }}"
+                class="form-control"
+            >
+            {{ form_errors(form.path) }}
+        </div>
+
+        <div>
+            {{ form_row(form.fichier) }} {# Ajout du champ fichier après le champ path #}
+        </div>
+
+        <div>
+            {{ form_row(form.save) }}
+        </div>
+    {{ form_end(form) }}
+</body>
+</html>

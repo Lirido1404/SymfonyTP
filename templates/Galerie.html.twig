@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galerie Photo</title>
+    <link href="{{ asset('css/Galerie.css') }}" rel="stylesheet" />
+    <style>
+        .fade-in {
+            opacity: 0;
+            animation: fadeInAnimation 0.25s ease forwards;
+        }
+    </style>
+</head>
+<body>
+    <h1>Galerie Photo</h1>
+
+    <div class="gallery">
+        {% for image in images %}
+            <div>
+                <img src="{{ asset('Images/' ~ image) }}" alt="Image">
+            </div>
+        {% endfor %}
+    </div>
+
+    {% if images|length == 6 %}
+        <a href="{{ path('galerie', {'page': page + 1}) }}">Page suivante</a>
+    {% endif %}
+</body>
+</html>

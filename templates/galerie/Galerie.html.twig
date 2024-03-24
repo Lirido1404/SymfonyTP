@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Galerie Photo</title>
+</head>
+<body>
+    <h1>Galerie Photo</h1>
+
+    {# Barre de recherche par auteur #}
+    <form action="{{ path('galerie') }}" method="GET">
+        <input type="text" name="auteur" placeholder="Rechercher par auteur">
+        <button type="submit">Rechercher</button>
+    </form>
+
+    {# Lien pour se connecter ou se déconnecter #}
+    {% if app.user %}
+        <a href="{{ logout_path('main') }}">Se déconnecter</a>
+    {% else %}
+        <a href="{{ path('login') }}">Se connecter</a>
+    {% endif %}
+
+    <div class="gallery2" style="display: flex; gap: 10px; margin-top:20px; flex-wrap:wrap;">
+        {% for image in images %}
+            <div>
+                <img src="{{ asset('Images/' ~ image.fichier) }}" alt="Image" style="width: 100px; height: 100px;"><br>
+                {{ image.titre }}<br>
+                {{ image.auteur }}<br>
+                {{ image.date ? image.date.format('Y-m-d') : '' }}<br>
+                {{ image.fichier }}<br>
+            </div>
+        {% endfor %}
+    </div>
+
+    <hr>
+
+    <div class="gallery2" style="display: flex; gap: 10px; margin-top:20px;">
+        {% for image in images %}
+            <div>
+                <img src="{{ asset('Images/' ~ image.path) }}" alt="Image" style="width: 100px; height: 100px;"><br>
+                {{ image.titre }}<br>
+                {{ image.auteur }}<br>
+                {{ image.date ? image.date.format('Y-m-d') : '' }}<br>
+                {{ image.fichier }}<br>
+            </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
